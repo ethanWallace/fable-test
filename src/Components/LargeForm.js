@@ -30,7 +30,7 @@ export default function LargeForm() {
   const submit = (e) => {
     e.preventDefault();
     if (text.trim() !== '' && longtext.trim !== '' && select !== "" && check > 0 && radio !== '') {
-      navigate('/page1');
+      navigate('/');
     }
   };
 
@@ -39,7 +39,7 @@ export default function LargeForm() {
       <Helmet>
         <title>Large form</title>
       </Helmet>
-      
+
       <h1>Large form test</h1>
 
       <p>Text talking about form</p>
