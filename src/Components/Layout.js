@@ -9,8 +9,8 @@ function Layout() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="page1">Page 1</Link></li>
-            <li><Link to="page2">Page 2</Link></li>
+            <li><Link to="multistep">Multi-step form</Link></li>
+            <li><Link to="largeform">Large form</Link></li>
             <li><Link to="page3">Page 3</Link></li>
           </ul>
         </nav>
@@ -22,7 +22,7 @@ function Layout() {
       
 
       <GcdsContainer tag="footer" container="lg" centered>
-
+    This is a footer
       </GcdsContainer>
     </Fragment>
   )

@@ -1,16 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-export default function Home() {
+export default function MultiTest() {
   return (
     <div>
       <Helmet>
-        <title>Home</title>
+        <title>Multi-step</title>
       </Helmet>
 
-      <h1>Home</h1>
-
-      <p>Nice text about what this is</p>
+      <h1>Multi-step form test</h1>
     </div>
   )
 }
