@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { HashRouter as Router, Route, Routes} from "react-router-dom";
 import MultiTest from "./Components/MultiTest";
 import LargeForm from "./Components/LargeForm";
 import Page3 from "./Components/Page3";
