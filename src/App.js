@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { HashRouter, Route, Routes} from "react-router-dom";
 import MultiTest from "./Components/MultiTest";
 import LargeForm from "./Components/LargeForm";
 import Page3 from "./Components/Page3";
@@ -11,16 +11,16 @@ import '@cdssnc/gcds-components-react/gcds.css';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Routes>
           <Route exact path="/" element={<Layout />}>
             <Route exact index element={<Home />} />
-            <Route exact path="multistep" element={<MultiTest />} />
+            <Route exact path="submit-recipe" element={<MultiTest />} />
             <Route exact path="largeform" element={<LargeForm />} />
             <Route exact path="page3" element={<Page3 />} />
           </Route>
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 }

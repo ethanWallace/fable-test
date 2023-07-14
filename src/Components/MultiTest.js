@@ -1,30 +1,74 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useRef } from 'react'
 import { Helmet } from 'react-helmet'
+import {useNavigate, createSearchParams} from 'react-router-dom';
 
-import { GcdsInput, GcdsButton, GcdsStepper, GcdsFileUploader, GcdsTextarea } from '@cdssnc/gcds-components-react';
+import { GcdsInput, GcdsButton, GcdsStepper, GcdsFileUploader, GcdsTextarea, GcdsIcon } from '@cdssnc/gcds-components-react';
 
 export default function MultiTest() {
   const [step, setStep ] = useState(0);
   const [name, setName ] = useState('');
   const [recipe, setRecipe ] = useState('');
   const [picture, setPicture ] = useState([]);
+  const [file, setFile ] = useState([]);
+
+  const nameRef = useRef(null);
+  const recipeRef = useRef(null);
+  const pictureRef = useRef(null);
+  const stepRef = useRef();
+
+  const navigate = useNavigate();
 
   const start = () => {
-    setStep(step + 1)
+    setStep(step + 1);
+    setTimeout(() => {
+      stepRef.current.focus();
+    }, 50);
   }
 
   const back = () => {
-    setStep(step - 1)
+    setStep(step - 1);
+    setTimeout(() => {
+      stepRef.current.focus();
+    }, 50);
   }
 
   const formSubmit = (e) => {
     e.preventDefault();
 
+    // Step 1
     if (step === 1 && name.trim() !== '') {
-      setStep(step + 1)
+      setStep(step + 1);
+      setTimeout(() => {
+        stepRef.current.focus();
+      }, 50);
+    } else if (step === 1) {
+      nameRef.current.querySelector('input').focus();
     }
+    
+    // Step 2
     if (step === 2 && recipe.trim() !== '') {
-      setStep(step + 1)
+      setStep(step + 1);
+      setTimeout(() => {
+        stepRef.current.focus();
+      }, 50);
+    } else if (step === 2) {
+      recipeRef.current.querySelector('textarea').focus();
+    }
+
+    // Step 3
+    if (step === 3 && picture.length > 0) {
+      setStep(step + 1);
+      setTimeout(() => {
+        stepRef.current.focus();
+      }, 50);
+    } else if (step === 3) {
+      pictureRef.current.querySelector('input').focus();
+    }
+
+    if (step === 4) {
+      navigate("/",
+        {state: {success: 'recipe'}}
+      );
     }
   }
 
@@ -38,13 +82,21 @@ export default function MultiTest() {
               buttonRole='secondary'
               onClick={back}
             >
+              <GcdsIcon marginRight="200" name="arrow-left"></GcdsIcon>
               Previous
             </GcdsButton>
           }
           <GcdsButton
             type="submit"
           >
-            Next
+            {step !== 4 ?
+              <Fragment>
+                Next
+                <GcdsIcon marginLeft="200" name="arrow-right"></GcdsIcon>
+              </Fragment>
+            :
+              "Submit"
+            }
           </GcdsButton>
         </Fragment>
       )
@@ -53,24 +105,10 @@ export default function MultiTest() {
 
   const currentStep = () => {
     switch(step) {
-      case 0: return (
-        <Fragment>
-          <h1>Multi-step form test</h1>
-
-          <p>Intro to multi step</p>
-
-          <GcdsButton
-            type='link'
-            onClick={start}
-          >
-            Start
-          </GcdsButton>
-        </Fragment>
-      );
       case 1: return (
         <Fragment>
-          <GcdsStepper currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1>Name</h1>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Name of recipe</h1>
 
           <form noValidate onSubmit={formSubmit}>
             <GcdsInput
@@ -78,7 +116,10 @@ export default function MultiTest() {
               label="Recipe name"
               required
               value={name}
+              validateOn="submit"
+              autocomplete="off"
               onGcdsChange={(e) => setName(e.target.value)}
+              ref={nameRef}
             ></GcdsInput>
 
             {nextButtons()}
@@ -87,8 +128,8 @@ export default function MultiTest() {
       );
       case 2: return (
         <Fragment>
-          <GcdsStepper currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1>Recipe</h1>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Recipe instructions</h1>
 
           <form noValidate onSubmit={formSubmit}>
             <GcdsTextarea
@@ -97,6 +138,7 @@ export default function MultiTest() {
               required
               value={recipe}
               onGcdsChange={(e) => setRecipe(e.target.value)}
+              ref={recipeRef}
             ></GcdsTextarea>
 
             {nextButtons()}
@@ -105,42 +147,63 @@ export default function MultiTest() {
       );
       case 3: return (
         <Fragment>
-          <GcdsStepper currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1>Picture</h1>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Picture of recipe</h1>
 
-          <GcdsFileUploader
-            uploaderId='picture'
-            label="Picture of recipe"
-            required
-            value={picture}
-            onGcdsFileUploaderChange={(e) => setPicture(e.target.value)}
-          ></GcdsFileUploader>
+          <form noValidate onSubmit={formSubmit}>
+            <GcdsFileUploader
+              uploaderId='picture'
+              label="Picture of recipe"
+              required
+              value={picture}
+              onGcdsFileUploaderChange={(e) => {setPicture(e.target.value); setFile(e.target.querySelector("#picture").files)}}
+              ref={pictureRef}
+            ></GcdsFileUploader>
 
-          {nextButtons()}
+            {nextButtons()}
+          </form>
         </Fragment>
       );
-      case 3: return (
+      case 4: return (
         <Fragment>
-          <GcdsStepper currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1>Confirmation</h1>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Confirmation</h1>
 
-          <GcdsFileUploader
-            uploaderId='picture'
-            label="Picture of recipe"
-            required
-            value={picture}
-            onGcdsFileUploaderChange={(e) => setPicture(e.target.value)}
-          ></GcdsFileUploader>
+          <p>Please confirm the details of your submission below.</p>
 
-          {nextButtons()}
+          <form noValidate onSubmit={formSubmit}>
+
+            <p><strong>Name of recipe:</strong> {name}</p>
+            <p><strong>Recipe:</strong> {recipe}</p>
+            <p><strong>Picture of recipe:</strong></p>
+            <img src={URL.createObjectURL(file[0])} alt="" />
+
+            {nextButtons()}
+          </form>
         </Fragment>
+      );
+      default: return (
+        <div ref={stepRef}>
+          <h1>Submit your own recipe</h1>
+
+          <p>Intro to submit your own recipe</p>
+
+          <GcdsButton
+            type='link'
+            onClick={start}
+            href="javascript:void(0);"
+          >
+            Start
+          </GcdsButton>
+        </div>
       );
     }
   }
+
   return (
     <div>
       <Helmet>
-        <title>Multi-step</title>
+        <title>Submit your own recipe</title>
       </Helmet>
 
       {currentStep()}
