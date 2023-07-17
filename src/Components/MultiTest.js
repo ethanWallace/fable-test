@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useRef } from 'react'
 import { Helmet } from 'react-helmet'
-import {useNavigate, createSearchParams} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import { GcdsInput, GcdsButton, GcdsStepper, GcdsFileUploader, GcdsTextarea, GcdsIcon } from '@cdssnc/gcds-components-react';
 

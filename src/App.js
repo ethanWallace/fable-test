@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" element={<Layout />}>
             <Route exact index element={<Home />} />
             <Route exact path="submit-recipe" element={<MultiTest />} />
-            <Route exact path="largeform" element={<LargeForm />} />
+            <Route exact path="cupcake-delivery" element={<LargeForm />} />
             <Route exact path="page3" element={<Page3 />} />
           </Route>
         </Routes>

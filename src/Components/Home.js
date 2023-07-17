@@ -10,7 +10,7 @@ export default function Home() {
   const location = useLocation();
 
   const successMsg = () => {
-    if (location.state && location.state.success === 'recipe') {
+    if (location.state && location.state.success) {
       return <Alert msg={location.state.success}></Alert>;
     }
   }
@@ -42,9 +42,15 @@ const Alert = (props) => {
   return (<GcdsAlert
     ref={alertRef}
     alertRole='success'
-    heading='Recipe submitted'
+    heading={props.msg === 'recipe' ? 'Recipe submitted' : 'Delivery submitted'}
     tabIndex={-1}
   >
-    <p>Thank you. Your recipe has been submitted. It should be published after 1 business day.</p>
+    <p>
+      {props.msg === 'recipe' ? 
+        'Thank you. Your recipe has been submitted. It should be published after 1 business day.'
+      :
+        'Thank you. Your delivery information has been submitted.'
+      }
+      </p>
   </GcdsAlert>);
 }
