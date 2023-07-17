@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from "react-router-dom";
-import { GcdsContainer, GcdsAlert } from '@cdssnc/gcds-components-react';
+import { GcdsContainer } from '@cdssnc/gcds-components-react';
 
 function Layout() {
   return (
