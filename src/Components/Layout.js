@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from "react-router-dom";
-import { GcdsContainer } from '@cdssnc/gcds-components-react';
+import { GcdsContainer, GcdsAlert } from '@cdssnc/gcds-components-react';
 
 function Layout() {
   return (
@@ -9,8 +9,8 @@ function Layout() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="multistep">Multi-step form</Link></li>
-            <li><Link to="largeform">Large form</Link></li>
+            <li><Link to="submit-recipe">Submit recipe</Link></li>
+            <li><Link to="cupcake-delivery">Cupcake delivery</Link></li>
             <li><Link to="page3">Page 3</Link></li>
           </ul>
         </nav>
@@ -22,7 +22,7 @@ function Layout() {
       
 
       <GcdsContainer tag="footer" container="lg" centered>
-    This is a footer
+        This is a footer
       </GcdsContainer>
     </Fragment>
   )
