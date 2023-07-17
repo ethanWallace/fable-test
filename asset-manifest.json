@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fable-test/static/css/main.5405720e.css",
-    "main.js": "/fable-test/static/js/main.9de6e426.js",
+    "main.js": "/fable-test/static/js/main.4db4cf3b.js",
     "static/js/707.5a17bfe1.chunk.js": "/fable-test/static/js/707.5a17bfe1.chunk.js",
     "static/js/875.b081ad82.chunk.js": "/fable-test/static/js/875.b081ad82.chunk.js",
     "static/js/434.106f3431.chunk.js": "/fable-test/static/js/434.106f3431.chunk.js",
@@ -17,12 +17,12 @@
     "index.html": "/fable-test/index.html",
     "static/media/index.js.map": "/fable-test/static/media/index.js.b1e4ac539ebabcef389c.map",
     "main.5405720e.css.map": "/fable-test/static/css/main.5405720e.css.map",
-    "main.9de6e426.js.map": "/fable-test/static/js/main.9de6e426.js.map",
+    "main.4db4cf3b.js.map": "/fable-test/static/js/main.4db4cf3b.js.map",
     "875.b081ad82.chunk.js.map": "/fable-test/static/js/875.b081ad82.chunk.js.map",
     "434.106f3431.chunk.js.map": "/fable-test/static/js/434.106f3431.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5405720e.css",
-    "static/js/main.9de6e426.js"
+    "static/js/main.4db4cf3b.js"
   ]
 }
