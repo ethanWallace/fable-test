@@ -41,15 +41,15 @@ export default function LargeForm() {
         <title>Cupcake delivery</title>
       </Helmet>
 
-      <h1>Cupcake delivery</h1>
-
-      <p>Text talking about cupcakes</p>
+      <h1 className="mt-500 mb-200">Cupcake delivery</h1>
+      <p className="mb-400">Text talking about cupcakes</p>
 
       <form noValidate onSubmit={submit}>
         <GcdsErrorSummary></GcdsErrorSummary>
 
         <GcdsFieldset
           legend='Your information'
+          hint='Enter your name and email address to create an account.'
           fieldsetId='user'
         >
           <GcdsInput
@@ -72,6 +72,7 @@ export default function LargeForm() {
 
         <GcdsFieldset
           legend='Order information'
+          hint='Let us know more details about which cupcakes you want.'
           fieldsetId='order'
         >
           <GcdsSelect
@@ -156,13 +157,13 @@ export default function LargeForm() {
           </GcdsFieldset>
         </GcdsFieldset>
 
-        <GcdsButton
-          type='submit'
-        >
-          Submit
-        </GcdsButton>
-
-
+        <div class='mt-500'>
+          <GcdsButton
+            type='submit'
+          >
+            Submit
+          </GcdsButton>
+        </div>
       </form>
     </div>
   )

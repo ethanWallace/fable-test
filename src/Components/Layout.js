@@ -69,7 +69,7 @@ function Layout() {
 
       <div className="bg-light px-200 py-400">
         <GcdsContainer tag="footer" container="xl" centered>
-          &copy;2023
+          <p><small>&copy;2023 Cupcake heros</small></p>
         </GcdsContainer>
       </div>
     </>

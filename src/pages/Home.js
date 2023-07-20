@@ -24,7 +24,7 @@ export default function Home() {
             <Link className="text-light link-no-underline" to="recipes">Check out recipes</Link>
           </GcdsButton>
         </article>
-        <article className="pb-600">
+        <article className="d-flex justify-content-end pb-600">
           <img
             src={Intro}
             alt="Aerial view of an assortment of cupcakes displayed in a box. There are 3 columns with 4 cupcakes in each row. The cupcakes come in various flavors, adding to the visual appeal."
