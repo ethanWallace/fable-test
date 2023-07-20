@@ -1,19 +1,30 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, {useRef, useEffect} from 'react'
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from 'react-helmet'
 
-import { GcdsButton, GcdsGrid } from '@cdssnc/gcds-components-react'
+import { GcdsButton, GcdsGrid, GcdsAlert } from '@cdssnc/gcds-components-react'
 
 import Intro from '../img/home/intro.jpg'
 import Order from '../img/home/order-cupcakes.jpg'
 import Submit from '../img/home/submit-recipe.jpg'
 
 export default function Home() {
+
+  const location = useLocation();
+
+  const successMsg = () => {
+    if (location.state && location.state.success) {
+      return <Alert msg={location.state.success}></Alert>;
+    }
+  }
+  
   return (
     <section>
       <Helmet>
         <title>Home</title>
       </Helmet>
+
+      {successMsg()}
 
       <GcdsGrid columns="1fr" columnsTablet="2fr 1fr" gap="500">
         <article className="pb-600">
@@ -56,4 +67,29 @@ export default function Home() {
       </GcdsGrid>
     </section>
   )
+}
+
+const Alert = (props) => {
+  const alertRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      alertRef.current.focus();
+    }, 50);
+  }, []);
+
+  return (<GcdsAlert
+    ref={alertRef}
+    alertRole='success'
+    heading={props.msg === 'recipe' ? 'Recipe submitted' : 'Delivery submitted'}
+    tabIndex={-1}
+  >
+    <p>
+      {props.msg === 'recipe' ? 
+        'Thank you. Your recipe has been submitted. It should be published after 1 business day.'
+      :
+        'Thank you. Your delivery information has been submitted.'
+      }
+      </p>
+  </GcdsAlert>);
 }
