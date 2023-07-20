@@ -44,7 +44,7 @@ export default function MultiTest() {
     } else if (step === 1) {
       nameRef.current.querySelector('input').focus();
     }
-    
+
     // Step 2
     if (step === 2 && recipe.trim() !== '') {
       setStep(step + 1);
@@ -75,7 +75,7 @@ export default function MultiTest() {
   const nextButtons = () => {
     if (step > 0) {
       return (
-        <Fragment>
+        <div class="d-flex justify-content-between container-xs mt-500 pe-500">
           {step > 1 &&
             <GcdsButton
               type="button"
@@ -98,7 +98,7 @@ export default function MultiTest() {
               "Submit"
             }
           </GcdsButton>
-        </Fragment>
+        </div>
       )
     }
   }
@@ -108,9 +108,17 @@ export default function MultiTest() {
       case 1: return (
         <Fragment>
           <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Name of recipe</h1>
+          <h1
+            className="mb-500"
+            tabIndex="-1"
+            ref={stepRef}
+            id="step-name"
+            aria-describedby='step'
+          >
+            Name of recipe
+          </h1>
 
-          <form noValidate onSubmit={formSubmit}>
+          <form className="mb-800" noValidate onSubmit={formSubmit}>
             <GcdsInput
               inputId="name"
               label="Recipe name"
@@ -129,9 +137,17 @@ export default function MultiTest() {
       case 2: return (
         <Fragment>
           <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Recipe instructions</h1>
+          <h1
+            className="mb-500"
+            tabIndex="-1"
+            ref={stepRef}
+            id="step-name"
+            aria-describedby='step'
+          >
+            Recipe instructions
+          </h1>
 
-          <form noValidate onSubmit={formSubmit}>
+          <form className="mb-800" noValidate onSubmit={formSubmit}>
             <GcdsTextarea
               textareaId="name"
               label="Recipe"
@@ -148,12 +164,21 @@ export default function MultiTest() {
       case 3: return (
         <Fragment>
           <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Picture of recipe</h1>
+          <h1
+            className="mb-500"
+            tabIndex="-1"
+            ref={stepRef}
+            id="step-name"
+            aria-describedby='step'
+          >
+            Picture of recipe
+          </h1>
 
-          <form noValidate onSubmit={formSubmit}>
+          <form className="mb-800" noValidate onSubmit={formSubmit}>
             <GcdsFileUploader
               uploaderId='picture'
               label="Picture of recipe"
+              hint="Upload a picture for your recipe."
               required
               value={picture}
               onGcdsFileUploaderChange={(e) => {setPicture(e.target.value); setFile(e.target.querySelector("#picture").files)}}
@@ -167,26 +192,39 @@ export default function MultiTest() {
       case 4: return (
         <Fragment>
           <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
-          <h1 tabIndex="-1" ref={stepRef} id="step-name" aria-describedby='step'>Confirmation</h1>
+          <h1
+            className="mb-400"
+            tabIndex="-1"
+            ref={stepRef}
+            id="step-name"
+            aria-describedby='step'
+          >
+            Confirmation
+          </h1>
+          <p className="mb-500">Please confirm the details of your submission below.</p>
 
-          <p>Please confirm the details of your submission below.</p>
-
-          <form noValidate onSubmit={formSubmit}>
-
-            <p><strong>Name of recipe:</strong> {name}</p>
-            <p><strong>Recipe:</strong> {recipe}</p>
-            <p><strong>Picture of recipe:</strong></p>
-            <img src={URL.createObjectURL(file[0])} alt="" />
+          <form className="container-md mb-800" noValidate onSubmit={formSubmit}>
+            <fieldset class="bt-sm py-400">
+              <p class="mb-200"><strong>Name of recipe:</strong></p>
+              <p>{name}</p>
+            </fieldset>
+            <fieldset class="bt-sm py-400">
+              <p class="mb-200"><strong>Recipe instructions:</strong></p>
+              <p>{recipe}</p>
+            </fieldset>
+            <fieldset class="by-sm py-400">
+              <p class="mb-200"><strong>Picture of recipe:</strong></p>
+              <img className="d-block" src={URL.createObjectURL(file[0])} alt="" />
+            </fieldset>
 
             {nextButtons()}
           </form>
         </Fragment>
       );
       default: return (
-        <div ref={stepRef}>
-          <h1>Submit your own recipe</h1>
-
-          <p>Intro to submit your own recipe</p>
+        <div className="mb-800" ref={stepRef}>
+          <h1 className="mt-500 mb-400">Submit your own recipe</h1>
+          <p className="mb-400">Intro to submit your own recipe</p>
 
           <GcdsButton
             type='link'
@@ -207,7 +245,6 @@ export default function MultiTest() {
       </Helmet>
 
       {currentStep()}
-
     </div>
   )
 }
