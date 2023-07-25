@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import {
   GcdsCard,
@@ -21,16 +20,15 @@ const RecipesList = ({ recipes, currentPage, recipesPerPage }) => {
         gap="450"
       >
         {currentRecipes.map( recipe => (
-          <Link className="text-default link-no-underline" to={`/recipe/${recipe.url}`}>
-            <GcdsCard
-              key={recipe.url}
-              cardTitle={recipe.title}
-              titleElement="h2"
-              description={`Cook time: ${recipe.details.cook}`}
-              imgSrc={require(`../img/cupcakes/${recipe.url}.jpg`)}
-              imgAlt={recipe.image.description}
-            />
-          </Link>
+          <GcdsCard
+            key={recipe.url}
+            cardTitle={recipe.title}
+            titleElement="h2"
+            href={`#/recipe/${recipe.url}`}
+            description={`Cook time: ${recipe.details.cook}`}
+            imgSrc={require(`../img/cupcakes/${recipe.url}.jpg`)}
+            imgAlt={recipe.image.description}
+          />
         ))}
       </GcdsGrid>
     </div>

@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <section>
       <h1 className="mt-500 mb-400">Not found</h1>
-      <GcdsButton type="link" href="/">Return to home</GcdsButton>
+      <GcdsButton type="link" href="#/">Return to home</GcdsButton>
     </section>
   );
 };

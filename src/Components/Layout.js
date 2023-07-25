@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link, useLocation } from "react-router-dom"
 import {
   GcdsBreadcrumbs,
   GcdsBreadcrumbsItem,
@@ -14,11 +14,12 @@ import {
 import Logo from '../img/logo.png'
 
 function Layout() {
+  const location = useLocation();
+
   return (
     <>
       <GcdsHeader
         lang="en"
-        langHref="en"
         signatureVariant="colour"
         skipToHref="#main-content"
       >
@@ -39,38 +40,35 @@ function Layout() {
           />
           <p>Cupcake heros</p>
         </Link>
+
         <GcdsTopNav slot="menu" label="topbar" alignment="right" lang="en">
-          <GcdsNavLink href="" slot="home"/>
-          <GcdsNavLink href="">
-            <Link className="text-inherit link-no-underline" to="/">
-              Home
-            </Link>
+          <GcdsNavLink href="#/" current={location.pathname === "/"}>
+            Home
           </GcdsNavLink>
-          <GcdsNavLink href="">
-            <Link className="text-inherit link-no-underline" to="recipes">
-              Recipes
-            </Link>
+          <GcdsNavLink href="#/recipes" current={location.pathname === "/recipes"}>
+            Recipes
           </GcdsNavLink>
-          <GcdsNavLink href="">
-            <Link className="text-inherit link-no-underline" to="submit-recipe">
+          <GcdsNavLink href="#/submit-recipe" current={location.pathname === "/submit-recipe"}>
               Submit recipe
-            </Link>
           </GcdsNavLink>
-          <GcdsNavLink href="">
-            <Link className="text-inherit link-no-underline" to="cupcake-delivery">
-              Cupcake delivery
-            </Link>
+          <GcdsNavLink href="#/cupcake-delivery" current={location.pathname === "/cupcake-delivery"}>
+            Cupcake delivery
           </GcdsNavLink>
         </GcdsTopNav>
 
-        <GcdsBreadcrumbs slot="breadcrumb" hide-canada-link>
-          <GcdsBreadcrumbsItem href="/">
-          <Link className="text-inherit link-no-underline" to="/">Home</Link>
-          </GcdsBreadcrumbsItem>
-          <GcdsBreadcrumbsItem href="">
-            <Link className="text-inherit link-no-underline" to="recipes">Recipes</Link>
-          </GcdsBreadcrumbsItem>
-        </GcdsBreadcrumbs>
+        {location.pathname !== '/' &&
+          <GcdsBreadcrumbs slot="breadcrumb" hide-canada-link>
+            <GcdsBreadcrumbsItem href="#/">
+              Home
+            </GcdsBreadcrumbsItem>
+            {location.pathname.includes('/recipe/') &&
+                <GcdsBreadcrumbsItem href="#/recipes">
+                  Recipes
+                </GcdsBreadcrumbsItem>
+            }
+
+          </GcdsBreadcrumbs>
+        }
       </GcdsHeader>
 
       <GcdsContainer id="main-content" tag="main" size="xl" centered padding="400">
