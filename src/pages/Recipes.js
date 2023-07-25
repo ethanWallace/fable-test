@@ -53,8 +53,7 @@ const Recipes = () => {
         totalPages={totalPages}
         currentPage={currentPage}
         pageChangeHandler={onPageChange}
-      >
-      </GcdsPagination>
+      />
     </div>
   );
 };

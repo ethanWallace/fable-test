@@ -2,7 +2,12 @@ import React, {useRef, useEffect} from 'react'
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from 'react-helmet'
 
-import { GcdsButton, GcdsGrid, GcdsAlert } from '@cdssnc/gcds-components-react'
+import {
+  GcdsAlert,
+  GcdsButton,
+  GcdsCard,
+  GcdsGrid
+} from '@cdssnc/gcds-components-react'
 
 import Intro from '../img/home/intro.jpg'
 import Order from '../img/home/order-cupcakes.jpg'
@@ -17,14 +22,16 @@ export default function Home() {
       return <Alert msg={location.state.success}></Alert>;
     }
   }
-  
+
   return (
     <section>
       <Helmet>
         <title>Home</title>
       </Helmet>
 
-      {successMsg()}
+      <div class="mb-600">
+        {successMsg()}
+      </div>
 
       <GcdsGrid columns="1fr" columnsTablet="2fr 1fr" gap="500">
         <article className="pb-600">
@@ -44,26 +51,24 @@ export default function Home() {
       </GcdsGrid>
 
       <GcdsGrid columns="1fr" columnsTablet="1fr 1fr" gap="450">
-        <article className="p-400 b-sm">
-          <img
-            className="mb-400"
-            src={Submit}
-            alt="Kitchen counter with kitchen utensils from above. The countertop displays 3 eggs, a jar of honey, a container of water, and an open bag of flour with a small amount of flour spilled around it. The setup suggests a baking activity in progress, adding a sense of warmth and homey ambiance to the scene."
+        <Link className="text-default link-no-underline" to={`/submit-recipe`}>
+          <GcdsCard
+            cardTitle="Submit your recipe"
+            titleElement="h2"
+            description="Do you think there is something missing here? Share your own cupcake recipe with us."
+            imgSrc={Submit}
+            imgAlt="Kitchen counter with kitchen utensils from above. The countertop displays 3 eggs, a jar of honey, a container of water, and an open bag of flour with a small amount of flour spilled around it. The setup suggests a baking activity in progress, adding a sense of warmth and homey ambiance to the scene."
           />
-          <h2 className="mb-250">Submit your recipe</h2>
-          <p className="mb-400">Do you think there is something missing here? Share your own cupcake recipe with us.</p>
-          <Link className="link-default" to="submit-recipe">Upload recipe</Link>
-        </article>
-        <article className="p-400 b-sm">
-          <img
-            className="mb-400"
-            src={Order}
-            alt="An open box of cupcakes showcasing various flavors, captured from a side view."
+        </Link>
+        <Link className="text-default link-no-underline" to={`/submit-recipe`}>
+          <GcdsCard
+            cardTitle="Cupcake delivery"
+            titleElement="h2"
+            description="Curious what or cupcakes taste like? Order your favourite cupcakes today."
+            imgSrc={Order}
+            imgAlt="An open box of cupcakes showcasing various flavors, captured from a side view."
           />
-          <h2 className="mb-250">Cupcake delivery</h2>
-          <p className="mb-400">Curious what or cupcakes taste like? Order your favourite cupcakes today.</p>
-          <Link className="link-default" to="cupcake-delivery">Order cupcakes</Link>
-        </article>
+        </Link>
       </GcdsGrid>
     </section>
   )
@@ -85,7 +90,7 @@ const Alert = (props) => {
     tabIndex={-1}
   >
     <p>
-      {props.msg === 'recipe' ? 
+      {props.msg === 'recipe' ?
         'Thank you. Your recipe has been submitted. It should be published after 1 business day.'
       :
         'Thank you. Your delivery information has been submitted.'

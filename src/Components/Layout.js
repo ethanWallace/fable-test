@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom"
 import {
   GcdsBreadcrumbs,
   GcdsBreadcrumbsItem,
@@ -6,10 +6,12 @@ import {
   GcdsDateModified,
   GcdsHeader,
   GcdsIcon,
-  GcdsPhaseBanner
-} from '@cdssnc/gcds-components-react';
+  GcdsNavLink,
+  GcdsPhaseBanner,
+  GcdsTopNav
+} from '@cdssnc/gcds-components-react'
 
-import Logo from '../img/logo.png';
+import Logo from '../img/logo.png'
 
 function Layout() {
   return (
@@ -37,38 +39,47 @@ function Layout() {
           />
           <p>Cupcake heros</p>
         </Link>
-        <GcdsContainer tag="div" container="xl" centered slot="menu">
-          <nav className="d-flex justify-content-end">
-            <ul className="d-flex py-200">
-              <li className="mx-300">
-                <Link className="link-default" to="/">Home</Link>
-              </li>
-              <li className="mx-300">
-                <Link className="link-default" to="recipes">Recipes</Link>
-              </li>
-              <li className="mx-300">
-                <Link className="link-default" to="submit-recipe">Submit recipe</Link>
-              </li>
-              <li className="mx-300">
-                <Link className="link-default" to="cupcake-delivery">Cupcake delivery</Link>
-              </li>
-            </ul>
-          </nav>
-        </GcdsContainer>
+        <GcdsTopNav slot="menu" label="topbar" alignment="right" lang="en">
+          <GcdsNavLink href="" slot="home"/>
+          <GcdsNavLink href="">
+            <Link className="text-inherit link-no-underline" to="/">
+              Home
+            </Link>
+          </GcdsNavLink>
+          <GcdsNavLink href="">
+            <Link className="text-inherit link-no-underline" to="recipes">
+              Recipes
+            </Link>
+          </GcdsNavLink>
+          <GcdsNavLink href="">
+            <Link className="text-inherit link-no-underline" to="submit-recipe">
+              Submit recipe
+            </Link>
+          </GcdsNavLink>
+          <GcdsNavLink href="">
+            <Link className="text-inherit link-no-underline" to="cupcake-delivery">
+              Cupcake delivery
+            </Link>
+          </GcdsNavLink>
+        </GcdsTopNav>
 
         <GcdsBreadcrumbs slot="breadcrumb" hide-canada-link>
-          <GcdsBreadcrumbsItem href="/">Home</GcdsBreadcrumbsItem>
-          <GcdsBreadcrumbsItem href="/recipes">Recipes</GcdsBreadcrumbsItem>
+          <GcdsBreadcrumbsItem href="/">
+          <Link className="text-inherit link-no-underline" to="/">Home</Link>
+          </GcdsBreadcrumbsItem>
+          <GcdsBreadcrumbsItem href="">
+            <Link className="text-inherit link-no-underline" to="recipes">Recipes</Link>
+          </GcdsBreadcrumbsItem>
         </GcdsBreadcrumbs>
       </GcdsHeader>
 
-      <GcdsContainer id="main-content" tag="main" container="xl" centered padding="400">
+      <GcdsContainer id="main-content" tag="main" size="xl" centered padding="400">
         <Outlet />
         <GcdsDateModified>2023-07-15</GcdsDateModified>
       </GcdsContainer>
 
       <div className="bg-light px-200 py-400">
-        <GcdsContainer tag="footer" container="xl" centered>
+        <GcdsContainer tag="footer" size="xl" centered>
           <p><small>&copy;2023 Cupcake heros</small></p>
         </GcdsContainer>
       </div>

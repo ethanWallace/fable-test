@@ -82,7 +82,7 @@ export default function MultiTest() {
               buttonRole='secondary'
               onClick={back}
             >
-              <GcdsIcon marginRight="200" name="arrow-left"></GcdsIcon>
+              <GcdsIcon marginRight="200" name="arrow-left" />
               Previous
             </GcdsButton>
           }
@@ -92,7 +92,7 @@ export default function MultiTest() {
             {step !== 4 ?
               <Fragment>
                 Next
-                <GcdsIcon marginLeft="200" name="arrow-right"></GcdsIcon>
+                <GcdsIcon marginLeft="200" name="arrow-right" />
               </Fragment>
             :
               "Submit"
@@ -107,7 +107,7 @@ export default function MultiTest() {
     switch(step) {
       case 1: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}/>
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -128,7 +128,7 @@ export default function MultiTest() {
               autocomplete="off"
               onGcdsChange={(e) => setName(e.target.value)}
               ref={nameRef}
-            ></GcdsInput>
+            />
 
             {nextButtons()}
           </form>
@@ -136,7 +136,7 @@ export default function MultiTest() {
       );
       case 2: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}/>
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -155,7 +155,7 @@ export default function MultiTest() {
               value={recipe}
               onGcdsChange={(e) => setRecipe(e.target.value)}
               ref={recipeRef}
-            ></GcdsTextarea>
+            />
 
             {nextButtons()}
           </form>
@@ -163,7 +163,7 @@ export default function MultiTest() {
       );
       case 3: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4} />
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -183,7 +183,7 @@ export default function MultiTest() {
               value={picture}
               onGcdsFileUploaderChange={(e) => {setPicture(e.target.value); setFile(e.target.querySelector("#picture").files)}}
               ref={pictureRef}
-            ></GcdsFileUploader>
+            />
 
             {nextButtons()}
           </form>
@@ -191,7 +191,7 @@ export default function MultiTest() {
       );
       case 4: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4} />
           <h1
             className="mb-400"
             tabIndex="-1"

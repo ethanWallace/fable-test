@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { GcdsGrid } from '@cdssnc/gcds-components-react'
+import {
+  GcdsCard,
+  GcdsGrid
+} from '@cdssnc/gcds-components-react'
 
 const RecipesList = ({ recipes, currentPage, recipesPerPage }) => {
   // Calculate the index of the first and last recipe to be displayed on the current page
@@ -18,20 +21,16 @@ const RecipesList = ({ recipes, currentPage, recipesPerPage }) => {
         gap="450"
       >
         {currentRecipes.map( recipe => (
-          <article key={recipe.url}>
-            <img
-              className="container-sm mb-400"
-              src={require(`../img/cupcakes/${recipe.url}.jpg`)}
-              alt={recipe.image.description}
+          <Link className="text-default link-no-underline" to={`/recipe/${recipe.url}`}>
+            <GcdsCard
+              key={recipe.url}
+              cardTitle={recipe.title}
+              titleElement="h2"
+              description={`Cook time: ${recipe.details.cook}`}
+              imgSrc={require(`../img/cupcakes/${recipe.url}.jpg`)}
+              imgAlt={recipe.image.description}
             />
-
-            <Link className="link-default" to={`/recipe/${recipe.url}`}>
-              <h2 className="mb-200">{recipe.title}</h2>
-            </Link>
-
-            <p>Prep time: {recipe.details.prep}</p>
-            <p>Cook time: {recipe.details.cook}</p>
-          </article>
+          </Link>
         ))}
       </GcdsGrid>
     </div>
