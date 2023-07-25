@@ -56,7 +56,7 @@ export default function MultiTest() {
     }
 
     // Step 3
-    if (step === 3 && picture.length > 0) {
+    if (step === 3 && (file.length > 0 && file[0].size < 1000000)) {
       setStep(step + 1);
       setTimeout(() => {
         stepRef.current.focus();
@@ -70,6 +70,25 @@ export default function MultiTest() {
         {state: {success: 'recipe'}}
       );
     }
+  }
+
+  function fileValidator() {
+    let errorMessage = {
+      "en": "Submitted file is too large",
+      "fr": "Submitted file is too large"
+    };
+    
+    return {
+        validate: (value) => {
+            if (value.length > 0) {
+              setFile(value);
+
+              return value[0].size < 100000;
+            }
+            return true;
+        },
+        errorMessage
+    };
   }
 
   const nextButtons = () => {
@@ -181,7 +200,10 @@ export default function MultiTest() {
               hint="Upload a picture for your recipe."
               required
               value={picture}
-              onGcdsFileUploaderChange={(e) => {setPicture(e.target.value); setFile(e.target.querySelector("#picture").files)}}
+              validator={[fileValidator()]}
+              onGcdsFileUploaderChange={(e) => {setPicture(e.target.value);}}
+              onGcdsRemoveFile={(e) => {setFile([]); setPicture([]); }}
+              accept="image/png, image/jpeg"
               ref={pictureRef}
             />
 
