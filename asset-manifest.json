@@ -1,17 +1,10 @@
 {
   "files": {
-    "main.css": "/fable-test/static/css/main.8f4ec1ef.css",
-    "main.js": "/fable-test/static/js/main.de677de6.js",
+    "main.css": "/fable-test/static/css/main.69878fe9.css",
+    "main.js": "/fable-test/static/js/main.938273e1.js",
+    "static/js/565.170775c5.chunk.js": "/fable-test/static/js/565.170775c5.chunk.js",
     "static/js/707.5a17bfe1.chunk.js": "/fable-test/static/js/707.5a17bfe1.chunk.js",
-    "static/js/875.301c0490.chunk.js": "/fable-test/static/js/875.301c0490.chunk.js",
-    "static/js/434.106f3431.chunk.js": "/fable-test/static/js/434.106f3431.chunk.js",
-    "static/js/422.cdf26547.chunk.js": "/fable-test/static/js/422.cdf26547.chunk.js",
-    "static/js/95.db33ef52.chunk.js": "/fable-test/static/js/95.db33ef52.chunk.js",
-    "static/js/619.57817ef4.chunk.js": "/fable-test/static/js/619.57817ef4.chunk.js",
-    "static/js/920.63edf069.chunk.js": "/fable-test/static/js/920.63edf069.chunk.js",
-    "static/js/541.8aff5570.chunk.js": "/fable-test/static/js/541.8aff5570.chunk.js",
-    "static/media/gcds-alert_29.entry.js.map": "/fable-test/static/media/gcds-alert_29.entry.js.8ae5df4154d8dac61703.map",
-    "static/media/index-9cd41981.js.map": "/fable-test/static/media/index-9cd41981.js.7468edd6769b5cd5e40e.map",
+    "static/js/875.572548d6.chunk.js": "/fable-test/static/js/875.572548d6.chunk.js",
     "static/media/strawberry-cupcake.jpg": "/fable-test/static/media/strawberry-cupcake.dffff6aaac69f2783c65.jpg",
     "static/media/submit-recipe.jpg": "/fable-test/static/media/submit-recipe.8a3aa9f88c9c13534376.jpg",
     "static/media/intro.jpg": "/fable-test/static/media/intro.4982343bd98898354934.jpg",
@@ -28,17 +21,14 @@
     "static/media/coconut-cream-cupcake.jpg": "/fable-test/static/media/coconut-cream-cupcake.b38284767bf957cd6c51.jpg",
     "static/media/lemon-cupcake.jpg": "/fable-test/static/media/lemon-cupcake.47545f54f4733092b4c6.jpg",
     "static/media/logo.png": "/fable-test/static/media/logo.d0049bf9a66caf0f95e3.png",
-    "static/media/gcds.js.map": "/fable-test/static/media/gcds.js.96bc57adcaecb885dfc6.map",
-    "static/media/loader.js.map": "/fable-test/static/media/loader.js.24e013b633e5508feb02.map",
     "index.html": "/fable-test/index.html",
-    "static/media/index.js.map": "/fable-test/static/media/index.js.b1e4ac539ebabcef389c.map",
-    "main.8f4ec1ef.css.map": "/fable-test/static/css/main.8f4ec1ef.css.map",
-    "main.de677de6.js.map": "/fable-test/static/js/main.de677de6.js.map",
-    "875.301c0490.chunk.js.map": "/fable-test/static/js/875.301c0490.chunk.js.map",
-    "434.106f3431.chunk.js.map": "/fable-test/static/js/434.106f3431.chunk.js.map"
+    "main.69878fe9.css.map": "/fable-test/static/css/main.69878fe9.css.map",
+    "main.938273e1.js.map": "/fable-test/static/js/main.938273e1.js.map",
+    "565.170775c5.chunk.js.map": "/fable-test/static/js/565.170775c5.chunk.js.map",
+    "875.572548d6.chunk.js.map": "/fable-test/static/js/875.572548d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f4ec1ef.css",
-    "static/js/main.de677de6.js"
+    "static/css/main.69878fe9.css",
+    "static/js/main.938273e1.js"
   ]
 }

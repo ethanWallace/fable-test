@@ -4,8 +4,6 @@ object-assign
 @license MIT
 */
 
-/*!__STENCIL_STATIC_IMPORT_SWITCH__*/
-
 /**
  * @license React
  * react-dom.production.min.js
