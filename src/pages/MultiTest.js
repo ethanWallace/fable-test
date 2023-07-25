@@ -75,14 +75,14 @@ export default function MultiTest() {
   const nextButtons = () => {
     if (step > 0) {
       return (
-        <div class="d-flex justify-content-between container-xs mt-500 pe-500">
+        <div className="d-flex justify-content-between container-xs mt-500 xs:pe-500">
           {step > 1 &&
             <GcdsButton
               type="button"
               buttonRole='secondary'
               onClick={back}
             >
-              <GcdsIcon marginRight="200" name="arrow-left"></GcdsIcon>
+              <GcdsIcon marginRight="200" name="arrow-left" />
               Previous
             </GcdsButton>
           }
@@ -92,7 +92,7 @@ export default function MultiTest() {
             {step !== 4 ?
               <Fragment>
                 Next
-                <GcdsIcon marginLeft="200" name="arrow-right"></GcdsIcon>
+                <GcdsIcon marginLeft="200" name="arrow-right" />
               </Fragment>
             :
               "Submit"
@@ -107,7 +107,7 @@ export default function MultiTest() {
     switch(step) {
       case 1: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}/>
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -128,7 +128,7 @@ export default function MultiTest() {
               autocomplete="off"
               onGcdsChange={(e) => setName(e.target.value)}
               ref={nameRef}
-            ></GcdsInput>
+            />
 
             {nextButtons()}
           </form>
@@ -136,7 +136,7 @@ export default function MultiTest() {
       );
       case 2: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4}/>
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -155,7 +155,7 @@ export default function MultiTest() {
               value={recipe}
               onGcdsChange={(e) => setRecipe(e.target.value)}
               ref={recipeRef}
-            ></GcdsTextarea>
+            />
 
             {nextButtons()}
           </form>
@@ -163,7 +163,7 @@ export default function MultiTest() {
       );
       case 3: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4} />
           <h1
             className="mb-500"
             tabIndex="-1"
@@ -183,7 +183,7 @@ export default function MultiTest() {
               value={picture}
               onGcdsFileUploaderChange={(e) => {setPicture(e.target.value); setFile(e.target.querySelector("#picture").files)}}
               ref={pictureRef}
-            ></GcdsFileUploader>
+            />
 
             {nextButtons()}
           </form>
@@ -191,7 +191,7 @@ export default function MultiTest() {
       );
       case 4: return (
         <Fragment>
-          <GcdsStepper id="step" currentStep={step} totalSteps={4}></GcdsStepper>
+          <GcdsStepper id="step" currentStep={step} totalSteps={4} />
           <h1
             className="mb-400"
             tabIndex="-1"
@@ -204,16 +204,16 @@ export default function MultiTest() {
           <p className="mb-500">Please confirm the details of your submission below.</p>
 
           <form className="container-md mb-800" noValidate onSubmit={formSubmit}>
-            <fieldset class="bt-sm py-400">
-              <p class="mb-200"><strong>Name of recipe:</strong></p>
+            <fieldset className="bt-sm py-400">
+              <p className="mb-200"><strong>Name of recipe:</strong></p>
               <p>{name}</p>
             </fieldset>
-            <fieldset class="bt-sm py-400">
-              <p class="mb-200"><strong>Recipe instructions:</strong></p>
+            <fieldset className="bt-sm py-400">
+              <p className="mb-200"><strong>Recipe instructions:</strong></p>
               <p>{recipe}</p>
             </fieldset>
-            <fieldset class="by-sm py-400">
-              <p class="mb-200"><strong>Picture of recipe:</strong></p>
+            <fieldset className="by-sm py-400">
+              <p className="mb-200"><strong>Picture of recipe:</strong></p>
               <img className="d-block" src={URL.createObjectURL(file[0])} alt="" />
             </fieldset>
 

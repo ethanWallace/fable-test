@@ -38,7 +38,7 @@ const Recipes = () => {
         <title>Recipes</title>
       </Helmet>
 
-      <h1 className="mt-500 mb-400">Recipes</h1>
+      <h1 className="lg:mt-500 mt-300 mb-400">Recipes</h1>
 
       <RecipesList
         recipes={recipes}
@@ -53,8 +53,7 @@ const Recipes = () => {
         totalPages={totalPages}
         currentPage={currentPage}
         pageChangeHandler={onPageChange}
-      >
-      </GcdsPagination>
+      />
     </div>
   );
 };
