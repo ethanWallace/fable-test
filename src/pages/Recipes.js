@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Helmet } from 'react-helmet'
+import React, { useState, useEffect, useRef } from 'react'
 
 import { GcdsPagination } from '@cdssnc/gcds-components-react'
 
@@ -28,17 +27,16 @@ const Recipes = () => {
     }
   };
 
+  const heading = useRef();
+
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
+    heading.current.focus();
   }, [])
 
   return (
     <div>
-      <Helmet>
-        <title>Recipes</title>
-      </Helmet>
-
-      <h1 className="lg:mt-500 mt-300 mb-400">Recipes</h1>
+      <h1 className="lg:mt-500 mt-300 mb-400" tabIndex="-1" id="mc" ref={heading}>Recipes</h1>
 
       <RecipesList
         recipes={recipes}

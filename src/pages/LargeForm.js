@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 
 import {
   GcdsInput,
@@ -24,6 +23,8 @@ export default function LargeForm() {
   const [check, setCheck] = useState(0);
   const [radio, setRadio] = useState('');
 
+  const heading = useRef();
+
   const navigate = useNavigate();
 
   const submit = (e) => {
@@ -35,14 +36,13 @@ export default function LargeForm() {
     }
   };
 
+  useEffect(() => {
+    heading.current.focus();
+  })
+
   return (
     <div>
-      <Helmet>
-        <title>Cupcake delivery</title>
-      </Helmet>
-
-      <h1 className="mt-500 mb-200">Cupcake delivery</h1>
-      <p className="mb-400">Text talking about cupcakes</p>
+      <h1 className="mt-500 mb-200" tabIndex="-1" id="mc" ref={heading}>Cupcake delivery</h1>
 
       <form noValidate onSubmit={submit}>
         <GcdsErrorSummary></GcdsErrorSummary>

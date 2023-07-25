@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom"
+import { useRef, useEffect } from "react";
 import {
   GcdsBreadcrumbs,
   GcdsBreadcrumbsItem,
@@ -12,16 +13,46 @@ import {
 } from '@cdssnc/gcds-components-react'
 
 import Logo from '../img/logo.png'
+import { Helmet } from "react-helmet";
 
 function Layout() {
   const location = useLocation();
+  const mainNav = useRef();
+
+  const readableName = {
+    "/": "Home",
+    "/submit-recipe": "Submit your own recipe",
+    "/recipes": "Recipes",
+    "/cupcake-delivery": "Cupcake delivery",
+    "/recipe/lemon-cupcake": "Lemon cupcake",
+    "/recipe/chocolate-cupcake": "Chocolate cupcake",
+    "/recipe/strawberry-cupcake": "Strawberry cupcake",
+    "/recipe/vanilla-classic-cupcake": "Vanilla classic cupcake",
+    "/recipe/red-velvet-cupcake": "Red velvet cupcake",
+    "/recipe/carrot-cake-cupcake": "Carrot cake cupcake",
+    "/recipe/smores-cupcake": "Smores cupcake",
+    "/recipe/coconut-cream-cupcake": "Coconut cream cupcake",
+    "/recipe/ice-cream-stuffed-cupcake": "Ice cream stuffed cupcake",
+    "/recipe/pavlova-cupcake": "Pavlova cupcake",
+    "/recipe/frappuccino-cupcake": "Frappuccino cupcake",
+    "/recipe/cannoli-cupcake": "Cannoli cupcake",
+  }
+
+  useEffect(() => {
+    if (location.hash) {
+      document.querySelector(location.hash).focus();
+    }
+  })
 
   return (
     <>
+      <Helmet>
+        <title>{`${readableName[location.pathname]} - Cupcake heroes`}</title>
+      </Helmet>
       <GcdsHeader
         lang="en"
         signatureVariant="colour"
-        skipToHref="#main-content"
+        skipToHref={`#${location.pathname}#mc`}
       >
         <GcdsPhaseBanner slot="banner">
           <GcdsIcon
@@ -38,20 +69,20 @@ function Layout() {
             alt="The logo features a cupcake with a determined facial expression and a superhero cape, exuding an enthusiastic and adventurous personality."
             className="header__logo me-300"
           />
-          <p>Cupcake heros</p>
+          <p>Cupcake heroes</p>
         </Link>
 
-        <GcdsTopNav slot="menu" label="topbar" alignment="right" lang="en">
-          <GcdsNavLink href="#/" current={location.pathname === "/"}>
+        <GcdsTopNav slot="menu" label="Site" alignment="right" lang="en" ref={mainNav}>
+          <GcdsNavLink href="#/" current={location.pathname === "/"} onClick={() => {mainNav.current.updateNavItemQueue(mainNav.current);}}>
             Home
           </GcdsNavLink>
-          <GcdsNavLink href="#/recipes" current={location.pathname === "/recipes"}>
+          <GcdsNavLink href="#/recipes" current={location.pathname === "/recipes"} onClick={() => {mainNav.current.updateNavItemQueue(mainNav.current);}}>
             Recipes
           </GcdsNavLink>
-          <GcdsNavLink href="#/submit-recipe" current={location.pathname === "/submit-recipe"}>
+          <GcdsNavLink href="#/submit-recipe" current={location.pathname === "/submit-recipe"} onClick={() => {mainNav.current.updateNavItemQueue(mainNav.current);}}>
               Submit recipe
           </GcdsNavLink>
-          <GcdsNavLink href="#/cupcake-delivery" current={location.pathname === "/cupcake-delivery"}>
+          <GcdsNavLink href="#/cupcake-delivery" current={location.pathname === "/cupcake-delivery"} onClick={() => {mainNav.current.updateNavItemQueue(mainNav.current);}}>
             Cupcake delivery
           </GcdsNavLink>
         </GcdsTopNav>
@@ -78,7 +109,8 @@ function Layout() {
 
       <div className="bg-light px-200 py-400">
         <GcdsContainer tag="footer" size="xl" centered>
-          <p><small>&copy;2023 Cupcake heros</small></p>
+          <p><small>&copy;2023 Cupcake heroes</small></p>
+          <p aria-live="assertive" role="alert" className="hide">{`${readableName[location.pathname]} - Cupcake heroes`}</p>
         </GcdsContainer>
       </div>
     </>

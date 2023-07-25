@@ -25,17 +25,13 @@ export default function Home() {
 
   return (
     <section>
-      <Helmet>
-        <title>Home</title>
-      </Helmet>
-
       <div className="lg:mb-600 mb-300">
         {successMsg()}
       </div>
 
       <GcdsGrid columns="1fr" columnsTablet="2fr 1fr" gap="500">
         <article className="pb-600">
-          <h1 className="lg:mt-500 mt-300 mb-400">All the Cupcakes</h1>
+          <h1 className="lg:mt-500 mt-300 mb-400" tabIndex="-1" id="mc">All the Cupcakes</h1>
           <p className="mb-400">If there's one thing that we all love, it's cupcakes. The look of it, the smell and of course eating it. And we all need a little love. So let's dive into it.</p>
           <p className="mb-400">The earliest description of what we call cupcake was found in 1796, within a recipe written by Amelia Simmons, describing a light cake to bake in small cups. And this is it. A website with only light and good things in it. Take a look at this list of beautiful cupcake recipes. Even better, let us know which cupcake recipe you enjoy best, upload your own, and treat yourself with an order of your favorite ones.</p>
           <GcdsButton type="link" href="#/recipes">
@@ -54,7 +50,7 @@ export default function Home() {
         <GcdsCard
           cardTitle="Submit your recipe"
           titleElement="h2"
-          href="#/recipes"
+          href="#/submit-recipe"
           description="Do you think there is something missing here? Share your own cupcake recipe with us."
           imgSrc={Submit}
           imgAlt="Kitchen counter with kitchen utensils from above. The countertop displays 3 eggs, a jar of honey, a container of water, and an open bag of flour with a small amount of flour spilled around it. The setup suggests a baking activity in progress, adding a sense of warmth and homey ambiance to the scene."

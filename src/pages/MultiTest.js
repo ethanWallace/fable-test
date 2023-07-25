@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from 'react'
+import React, { useState, Fragment, useRef, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import {useNavigate} from 'react-router-dom';
 
@@ -15,6 +15,7 @@ export default function MultiTest() {
   const recipeRef = useRef(null);
   const pictureRef = useRef(null);
   const stepRef = useRef();
+  const heading = useRef();
 
   const navigate = useNavigate();
 
@@ -71,6 +72,12 @@ export default function MultiTest() {
       );
     }
   }
+
+  useEffect(() => {
+    if (step === 0) {
+      heading.current.focus();
+    }
+  })
 
   function fileValidator() {
     let errorMessage = {
@@ -244,8 +251,8 @@ export default function MultiTest() {
         </Fragment>
       );
       default: return (
-        <div className="mb-800" ref={stepRef}>
-          <h1 className="mt-500 mb-400">Submit your own recipe</h1>
+        <div className="mb-800">
+          <h1 className="mt-500 mb-400" id="mc" tabIndex="-1" ref={heading}>Submit your own recipe</h1>
           <p className="mb-400">Intro to submit your own recipe</p>
 
           <GcdsButton
@@ -262,10 +269,6 @@ export default function MultiTest() {
 
   return (
     <div>
-      <Helmet>
-        <title>Submit your own recipe</title>
-      </Helmet>
-
       {currentStep()}
     </div>
   )
