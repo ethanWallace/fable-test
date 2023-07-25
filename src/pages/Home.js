@@ -29,20 +29,20 @@ export default function Home() {
         <title>Home</title>
       </Helmet>
 
-      <div class="mb-600">
+      <div className="lg:mb-600 mb-300">
         {successMsg()}
       </div>
 
       <GcdsGrid columns="1fr" columnsTablet="2fr 1fr" gap="500">
         <article className="pb-600">
-          <h1 className="mt-500 mb-400">All the Cupcakes</h1>
+          <h1 className="lg:mt-500 mt-300 mb-400">All the Cupcakes</h1>
           <p className="mb-400">If there's one thing that we all love, it's cupcakes. The look of it, the smell and of course eating it. And we all need a little love. So let's dive into it.</p>
           <p className="mb-400">The earliest description of what we call cupcake was found in 1796, within a recipe written by Amelia Simmons, describing a light cake to bake in small cups. And this is it. A website with only light and good things in it. Take a look at this list of beautiful cupcake recipes. Even better, let us know which cupcake recipe you enjoy best, upload your own, and treat yourself with an order of your favorite ones.</p>
           <GcdsButton>
             <Link className="text-light link-no-underline" to="recipes">Check out recipes</Link>
           </GcdsButton>
         </article>
-        <article className="d-flex justify-content-end pb-600">
+        <article className="lg:d-flex d-none justify-content-end pb-600">
           <img
             src={Intro}
             alt="Aerial view of an assortment of cupcakes displayed in a box. There are 3 columns with 4 cupcakes in each row. The cupcakes come in various flavors, adding to the visual appeal."

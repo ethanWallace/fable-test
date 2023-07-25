@@ -13,7 +13,7 @@ const RecipesList = ({ recipes, currentPage, recipesPerPage }) => {
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
 
   return (
-    <div className="mb-800">
+    <div className="md:mb-800 mb-600">
       <GcdsGrid
         tag="div"
         columnsTablet="1fr 1fr"

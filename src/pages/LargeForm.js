@@ -157,7 +157,7 @@ export default function LargeForm() {
           </GcdsFieldset>
         </GcdsFieldset>
 
-        <div class='mt-500'>
+        <div className='mt-500'>
           <GcdsButton
             type='submit'
           >

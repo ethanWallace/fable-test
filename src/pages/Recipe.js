@@ -17,10 +17,10 @@ const Recipe = ({ recipes }) => {
 
   return (
     <section>
-      <h2 className="mt-500 mb-400">{recipe.title}</h2>
+      <h2 className="lg:mt-500 mt-300 mb-400">{recipe.title}</h2>
 
       <img
-        className="container-md mb-400"
+        className="lg:container-md mb-400"
         src={require(`../img/cupcakes/${recipe.url}.jpg`)}
         alt={recipe.image.description}
       />

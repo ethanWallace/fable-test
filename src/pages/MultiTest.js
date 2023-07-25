@@ -75,7 +75,7 @@ export default function MultiTest() {
   const nextButtons = () => {
     if (step > 0) {
       return (
-        <div class="d-flex justify-content-between container-xs mt-500 pe-500">
+        <div className="d-flex justify-content-between container-xs mt-500 xs:pe-500">
           {step > 1 &&
             <GcdsButton
               type="button"
@@ -204,16 +204,16 @@ export default function MultiTest() {
           <p className="mb-500">Please confirm the details of your submission below.</p>
 
           <form className="container-md mb-800" noValidate onSubmit={formSubmit}>
-            <fieldset class="bt-sm py-400">
-              <p class="mb-200"><strong>Name of recipe:</strong></p>
+            <fieldset className="bt-sm py-400">
+              <p className="mb-200"><strong>Name of recipe:</strong></p>
               <p>{name}</p>
             </fieldset>
-            <fieldset class="bt-sm py-400">
-              <p class="mb-200"><strong>Recipe instructions:</strong></p>
+            <fieldset className="bt-sm py-400">
+              <p className="mb-200"><strong>Recipe instructions:</strong></p>
               <p>{recipe}</p>
             </fieldset>
-            <fieldset class="by-sm py-400">
-              <p class="mb-200"><strong>Picture of recipe:</strong></p>
+            <fieldset className="by-sm py-400">
+              <p className="mb-200"><strong>Picture of recipe:</strong></p>
               <img className="d-block" src={URL.createObjectURL(file[0])} alt="" />
             </fieldset>
 
