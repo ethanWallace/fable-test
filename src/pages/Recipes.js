@@ -10,6 +10,9 @@ const Recipes = () => {
   const recipesPerPage = 4
   const totalPages = Math.ceil(recipes.length / recipesPerPage)
 
+  const heading = useRef();
+  const list = useRef();
+
   // Handle page changes
   const onPageChange = (pageNumber) => {
     const selectedPage = pageNumber.target.innerHTML
@@ -25,12 +28,11 @@ const Recipes = () => {
     } else {
       setCurrentPage(selectedPage)
     }
+
+    list.current.focus();
   };
 
-  const heading = useRef();
-
   useEffect(() => {
-    window.scrollTo(0, 0);
     heading.current.focus();
   }, [])
 
@@ -38,6 +40,8 @@ const Recipes = () => {
     <div>
       <h1 className="lg:mt-500 mt-300 mb-400" tabIndex="-1" id="mc" ref={heading}>Recipes</h1>
 
+      <p className='mb-200' ref={list} tabIndex="-1">Showing recipes {4*currentPage-3} to {4*currentPage} of 12</p>
+      
       <RecipesList
         recipes={recipes}
         currentPage={currentPage}
