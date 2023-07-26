@@ -38,7 +38,7 @@ export default function LargeForm() {
 
   useEffect(() => {
     heading.current.focus();
-  })
+  }, [])
 
   return (
     <div>

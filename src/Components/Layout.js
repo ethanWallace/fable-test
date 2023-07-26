@@ -110,7 +110,6 @@ function Layout() {
       <div className="bg-light px-200 py-400">
         <GcdsContainer tag="footer" size="xl" centered>
           <p><small>&copy;2023 Cupcake heroes</small></p>
-          <p aria-live="assertive" role="alert" className="hide">{`${readableName[location.pathname]} - Cupcake heroes`}</p>
         </GcdsContainer>
       </div>
     </>

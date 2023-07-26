@@ -77,7 +77,7 @@ export default function MultiTest() {
     if (step === 0) {
       heading.current.focus();
     }
-  })
+  }, [])
 
   function fileValidator() {
     let errorMessage = {
