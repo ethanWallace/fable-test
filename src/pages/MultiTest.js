@@ -253,7 +253,7 @@ export default function MultiTest() {
       default: return (
         <div className="mb-800">
           <h1 className="mt-500 mb-400" id="mc" tabIndex="-1" ref={heading}>Submit your own recipe</h1>
-          <p className="mb-400">Have your recipe added to Cupcake heroes. Submit a name, instructions and a picture to us and we will look to add the recipe as soon as possible.</p>
+          <p className="mb-400">Have your recipe added to Cupcake heroes. Submit a name, some baking instructions and a picture to us and we will look to add the recipe as soon as possible.</p>
 
           <GcdsButton
             type='link'

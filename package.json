@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://ethanwallace.github.io/fable-test/",
   "dependencies": {
-    "@cdssnc/gcds-components": "^0.12.0",
-    "@cdssnc/gcds-components-react": "^0.12.0",
+    "@cdssnc/gcds-components": "^0.12.1",
+    "@cdssnc/gcds-components-react": "^0.12.1",
     "@cdssnc/gcds-utility": "^1.0.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
