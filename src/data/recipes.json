@@ -29,38 +29,6 @@
     }
   },
   {
-    "title": "Chocolate cupcake",
-    "url": "chocolate-cupcake",
-    "image": {
-      "description": "A tempting chocolate cupcake topped with creamy chocolate ganache."
-    },
-    "details": {
-      "prep": "35 min",
-      "cook": "20 min"
-    },
-    "content": {
-      "ingredients": [
-        "150 g self-raising flour",
-        "30 g cocoa powder",
-        "175 g caster sugar",
-        "175 g Dairy-free margarine - I'd recommend Pure Sunflower as that's what I've tested in this recipe",
-        "3 large eggs",
-        "⅛ tsp vanilla extract",
-        "75 g dairy-free dark chocolate",
-        "Extras",
-        "12 cupcake cases"
-      ],
-      "instructions": [
-        "Pre-heat your oven to 160ºC/140ºC fan.",
-        "Prep dark chocolate (75g).)",
-        "Put all of the ingredients into a large bowl and mix until smooth.",
-        "Divide the mixture between the 12 cupcake cases.",
-        "Put the tin into the oven and cook the cupcakes for 20-25 minutes.",
-        "Once cooked, remove the cupcakes from the oven and leave them to cool for a few minutes."
-      ]
-    }
-  },
-  {
     "title": "Strawberry cupcake",
     "url": "strawberry-cupcake",
     "image": {
@@ -157,6 +125,38 @@
     "url": "carrot-cake-cupcake",
     "image": {
       "description": "A delicious carrot cake cupcake with cream cheese frosting and nut sprinkles, so good, that it already has a bite taken out of it."
+    },
+    "details": {
+      "prep": "35 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "150 g self-raising flour",
+        "30 g cocoa powder",
+        "175 g caster sugar",
+        "175 g Dairy-free margarine - I'd recommend Pure Sunflower as that's what I've tested in this recipe",
+        "3 large eggs",
+        "⅛ tsp vanilla extract",
+        "75 g dairy-free dark chocolate",
+        "Extras",
+        "12 cupcake cases"
+      ],
+      "instructions": [
+        "Pre-heat your oven to 160ºC/140ºC fan.",
+        "Prep dark chocolate (75g).)",
+        "Put all of the ingredients into a large bowl and mix until smooth.",
+        "Divide the mixture between the 12 cupcake cases.",
+        "Put the tin into the oven and cook the cupcakes for 20-25 minutes.",
+        "Once cooked, remove the cupcakes from the oven and leave them to cool for a few minutes."
+      ]
+    }
+  },
+  {
+    "title": "Chocolate cupcake",
+    "url": "chocolate-cupcake",
+    "image": {
+      "description": "A tempting chocolate cupcake topped with creamy chocolate ganache."
     },
     "details": {
       "prep": "35 min",

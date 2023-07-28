@@ -58,6 +58,7 @@ export default function LargeForm() {
             {...sharedAttributes}
             value={text}
             onGcdsChange={(e) => setText(e.target.value)}
+            autocomplete="off"
           ></GcdsInput>
 
           <GcdsInput
@@ -67,6 +68,7 @@ export default function LargeForm() {
             {...sharedAttributes}
             value={email}
             onGcdsChange={(e) => setEmail(e.target.value)}
+            autocomplete="off"
           ></GcdsInput>
         </GcdsFieldset>
 
